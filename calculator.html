@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Calculator</title>
+  <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+  <p id="title"><span class="gray">C</span><span class="orange">A</span><span class="gray">L</span><span class="orange">C</span><span class="gray">U</span><span class="orange">L</span><span class="gray">A</span><span class="orange">T</span><span class="gray">O</span><span class="orange">R</span></p>
+  <p class="js-calculation"></p>
+
+  <p>
+    <button onclick="
+      updateCalculation('7');
+    ">
+      7
+     </button>
+
+    <button onclick="
+      updateCalculation('8');  
+    ">
+      8
+    </button>
+
+    <button onclick="
+      updateCalculation('9');  
+    ">
+      9
+    </button>
+
+    <button onclick="
+      updateCalculation('*');  
+    " id="symbol">
+      *
+    </button>
+  </p>
+
+  <p>
+    <button onclick="
+      updateCalculation('4');  
+    ">
+      4
+    </button>
+
+    <button onclick="
+      updateCalculation('5');  
+    ">
+      5
+    </button>
+
+    <button onclick="
+      updateCalculation('6');  
+    ">
+      6
+    </button>
+
+    <button onclick="
+      updateCalculation('-');  
+    " id="symbol">
+      -
+    </button>
+  </p>
+
+  <p>
+    <button onclick="
+      updateCalculation('1');  
+    ">
+      1
+    </button>
+
+    <button onclick="
+      updateCalculation('2');  
+    ">
+      2
+    </button>
+
+    <button onclick="
+      updateCalculation('3');  
+    ">
+      3
+    </button>
+
+    <button onclick="
+      updateCalculation('+');  
+    " id="symbol">
+      +
+    </button>
+  </p>
+
+  <p>
+    <button onclick="
+    updateCalculation('0');  
+  ">
+    0
+  </button>
+
+    <button onclick="
+      updateCalculation('.');  
+    ">
+      .
+    </button>
+
+    <button onclick="
+    calculation = eval(calculation);
+    // console.log(calculation);  
+    Display();
+    localStorage.setItem('calc', calculation);
+    ">
+      =
+    </button>
+
+    <button onclick="
+      updateCalculation('/');  
+    " id="symbol">
+      /
+    </button>
+  </p>
+
+  <button onclick="
+  calculation = '';
+  // console.log(calculation);  
+  Display() ;
+  localStorage.setItem('calc', calculation);
+
+  ">
+    clear
+  </button>
+
+  <script>
+    let calculation= localStorage.getItem('calc') || '';
+    
+    Display();
+
+    function updateCalculation(value){
+      calculation += value;
+      // console.log(calculation);
+      Display();
+      localStorage.setItem('calc', calculation);
+    }
+
+    function Display(){
+      document.querySelector('.js-calculation').innerHTML = calculation || '0';
+    }
+  </script>
+</body>
+</html>
